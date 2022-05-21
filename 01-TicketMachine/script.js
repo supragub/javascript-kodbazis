@@ -9,7 +9,7 @@
 
         10% discount for purchases of more than 10 tickets
 
-        Validation for quantity & type of ticket 
+        Validate the quantity, type and price of ticket.
 */
 
 var quantityOfTicket = prompt('How many tickets would you like to buy? Give me the quantity, please!');
@@ -30,8 +30,13 @@ var price = {
     pensioner : 280,
 };
 
-var discount = quantityOfTicket > 10 ? 0.9 : 1;
+if (price === undefined) {
+    alert('Error! Invalid price! ');
 
-var totalPrice = quantityOfTicket * price[typeOfTicket] * discount;
+} else {
+    var discount = quantityOfTicket > 10 ? 0.9 : 1;
 
-alert("Total price: " + totalPrice + " HUF");
+    var totalPrice = quantityOfTicket * price[typeOfTicket] * discount;
+    
+    alert("Total price: " + totalPrice + " HUF");
+}
