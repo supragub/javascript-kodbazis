@@ -4,17 +4,59 @@ Kattintásra adjunk hozzá egy "blur" nevű class attribútumot, majd újabb kat
 le róla azt.
 */
 
+var isBlurred = false;
+
+document.getElementById('element-one').onclick = function () {
+
+  isBlurred = !isBlurred;
+
+  if(isBlurred) {
+    document.getElementById('element-one').classList.add("blur");
+  }
+  else {
+    document.getElementById('element-one').classList.remove("blur");
+  }
+  
+}
+
 /*
 2. doboz:
 Ha az egérrel fölé megyünk változzon meg a háttérszíne pirosra, ha levesszük róla az egeret
 változzon vissza az eredeti színére.
 */
 
+var isHoveredOver = false;
+
+document.getElementById('element-two').onmouseover = function () {
+  isHoveredOver = true;
+  renderSecondBox();
+}
+
+document.getElementById('element-two').onmouseout = function () {
+  isHoveredOver = false;
+  renderSecondBox();
+}
+
+function renderSecondBox() {
+  if (isHoveredOver) {
+    document.getElementById('element-two').style.backgroundColor = 'red';
+  } else {
+    document.getElementById('element-two').style.backgroundColor = '';
+  }
+}
+
 /*
 3. doboz:
 Dupla kattintással sorsoljon egy számot 1 és 20 között és módosítsa a kapott számmal a doboz tartalmát. 
 */
 
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+document.getElementById('element-three').ondblclick = function () {
+  document.getElementById('element-three').firstElementChild.innerHTML = getRandomNumber(1,20);
+}
 
 /*
 4. doboz:
